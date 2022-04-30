@@ -2,9 +2,6 @@
 
 load 'bormashino/tasks/bormashino.rake'
 
-require 'fileutils'
-require 'uri'
-
 desc 'packしdigestする'
 task :default do
   Rake::Task['bormashino:pack'].invoke('')
