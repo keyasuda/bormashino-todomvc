@@ -47,3 +47,4 @@ config/environments/*.local.yml
 /head-wasm32-unknown-wasi-full-js
 /js/ruby-digest.js
 /wasi-vfs
+.vercel
