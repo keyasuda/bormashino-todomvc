@@ -1,12 +1,12 @@
 # bormashino-todomvc
 
-[TodoMVC](http://todomvc.com)を[Bormaŝino](https://github.com/keyasuda/bormashino)を用いて移植したものです。
+An [Bormaŝino](https://github.com/keyasuda/bormashino) port of [TodoMVC](http://todomvc.com).
 
-## デモ
+## Demo
 
 https://bormashino-todomvc.vercel.app/
 
-## 実行方法
+## How to run on local
 
 ```bash
 rbenv install 3.2.0-preview1
@@ -20,4 +20,4 @@ npm i
 ./bin/dev
 ```
 
-http://localhost:5000/ で TodoMVC が動作します。
+You can see working TodoMVC on http://localhost:5000/.
