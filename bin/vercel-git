@@ -1,0 +1,22 @@
+#!/usr/bin/bash
+
+# curl -fsSL https://rpm.nodesource.com/setup_16.x | bash -
+yum install -y git nodejs gcc openssl-devel readline-devel zlib-devel make tar libyaml-devel
+
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+(cd ~/.rbenv && src/configure && make -C src)
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
+~/.rbenv/bin/rbenv init
+echo 'eval "$(rbenv init - bash)"' >> ~/.bash_profile
+source ~/.bash_profile
+
+mkdir -p "$(rbenv root)"/plugins
+git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
+
+cat .ruby-version | rbenv install -
+
+npm i
+bundle
+bundle exec rake bormashino:download
+(cd src && bundle)
+npm run build
