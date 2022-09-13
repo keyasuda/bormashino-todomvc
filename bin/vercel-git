@@ -1,8 +1,7 @@
 #!/usr/bin/bash
-ls -l node_modules/
 
 # prerequisites
-yum install -y gcc openssl-devel readline-devel zlib-devel make tar libyaml-devel
+yum install -y gcc openssl-devel readline-devel zlib-devel make tar libyaml-devel xz curl
 
 # rbenv install
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
@@ -15,13 +14,15 @@ source ~/.bash_profile
 mkdir -p "$(rbenv root)"/plugins
 git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
 
-# make built rubies cached
-rm -rf "$(rbenv root)"/versions
-mkdir -p node_modules/rbenv_versions
-ln -s "$(rbenv root)"/versions node_modules/rbenv_versions
+# restore prebuilt versions
+curl -L https://github.com/keyasuda/bormashino-vercel-for-git-prebuilt-ruby/releases/download/latest/versions.tar.xz | xz -d | tar xf - -C /
 
 # required ruby install
+rbenv rehash
 cat .ruby-version | rbenv install -
+rbenv versions
+which ruby
+ruby --version
 
 # project build
 npm i
