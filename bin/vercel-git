@@ -1,8 +1,10 @@
 #!/usr/bin/bash
+ls -l node_modules/
 
-# curl -fsSL https://rpm.nodesource.com/setup_16.x | bash -
-yum install -y git nodejs gcc openssl-devel readline-devel zlib-devel make tar libyaml-devel
+# prerequisites
+yum install -y gcc openssl-devel readline-devel zlib-devel make tar libyaml-devel
 
+# rbenv install
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 (cd ~/.rbenv && src/configure && make -C src)
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
@@ -13,8 +15,15 @@ source ~/.bash_profile
 mkdir -p "$(rbenv root)"/plugins
 git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
 
+# make built rubies cached
+rm -rf "$(rbenv root)"/versions
+mkdir -p node_modules/rbenv_versions
+ln -s "$(rbenv root)"/versions node_modules/rbenv_versions
+
+# required ruby install
 cat .ruby-version | rbenv install -
 
+# project build
 npm i
 bundle
 bundle exec rake bormashino:download
