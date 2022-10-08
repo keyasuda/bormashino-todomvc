@@ -13,7 +13,6 @@ git clone https://github.com/keyasuda/bormashino-todomvc.git
 cd bormashino-todomvc
 cat .ruby-version | rbenv install -
 bundle install
-bundle exec rake bormashino:download
 gem install foreman
 (cd src && bundle install)
 npm i
