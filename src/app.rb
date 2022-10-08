@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require_relative 'todo'
 
+# app main class
 class App < Sinatra::Base
   set :protection, false
 
