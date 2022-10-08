@@ -1,3 +1,4 @@
+# todo-model class
 class Todo
   KEY = 'todos-bormashino'.freeze
   @store = Bormashino::LocalStorage.instance
