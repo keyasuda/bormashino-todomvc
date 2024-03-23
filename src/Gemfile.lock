@@ -11,7 +11,7 @@ GEM
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
     os (1.1.4)
-    rack (3.0.8)
+    rack (3.0.10)
     rack-protection (4.0.0)
       base64 (>= 0.1.0)
       rack (>= 3.0.0, < 4)
@@ -33,7 +33,7 @@ DEPENDENCIES
   bormashino (~> 0.3.0)
   json_pure (~> 2.6, >= 2.6.1)
   ruby2_keywords (= 0.0.4)
-  sinatra
+  sinatra (>= 4.0.0)
 
 BUNDLED WITH
    2.4.1
